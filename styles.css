@@ -24,4 +24,9 @@ body {
   display: flex;
   margin: 10px;
   justify-content: center;
+  background: light-dark(#fff,#333);
+}
+
+:root{
+  color-scheme: light dark;
 }
