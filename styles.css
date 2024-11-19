@@ -1,0 +1,31 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-height: calc(100svh - 20px);
+  height: 100svh;
+  aspect-ratio: 16/9;
+  max-width: calc(100svw - var(--chat-width));
+}
+.wrapper > * {
+  max-width: 100%;
+}
+.twitter-tweet {
+  margin: 0 !important;
+}
+.ytFrame {
+  width: 100%;
+  aspect-ratio: 16/9;
+
+  max-width: 20000px;
+}
+
+.ytChat {
+  min-width: min(200px, 20svw);
+  flex-grow: 1;
+}
+body {
+  margin: 0;
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+}
