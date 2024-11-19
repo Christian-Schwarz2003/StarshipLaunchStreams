@@ -24,7 +24,7 @@ body {
   display: flex;
   margin: var(--page-margin);
   justify-content: center;
-  background: light-dark(#fff, #333);
+  /* background: light-dark(#fff, #333); */
 }
 
 :root {
