@@ -1,20 +1,20 @@
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: calc(100svh - 20px);
-  height: 100svh;
-  aspect-ratio: 16/9;
-  max-width: calc(100svw - var(--chat-width));
+  gap: var(--gap)
 }
 .wrapper > * {
-  max-width: 100%;
+  width: var(--embed-width);
+  height: var(--embed-height);
 }
+
 .twitter-tweet {
   margin: 0 !important;
 }
+
 .ytFrame {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
 
   max-width: 20000px;
 }
@@ -22,11 +22,37 @@
 body {
   margin: 0;
   display: flex;
-  margin: 10px;
+  margin: var(--page-margin);
   justify-content: center;
-  background: light-dark(#fff,#333);
+  background: light-dark(#fff, #333);
 }
 
-:root{
+:root {
+  --col-count: 2;
+  --row-count: 2;
+  --page-margin: 10px;
+  --gap: 10px;
+
+  --page-width: calc(100svw - 2 * var(--page-margin));
+  --page-height: calc(100svh - 2 * var(--page-margin));
+
+  --gap-width: calc((var(--col-count) - 1) * var(--gap));
+  --gap-height: calc((var(--row-count) - 1) * var(--gap));
+
+  --embed-height-by-height: calc(
+    (var(--page-height) - var(--gap-height)) / var(--row-count)
+  );
+  --embed-width-by-width: calc(
+    (var(--page-width) - var(--gap-width)) / var(--col-count)
+  );
+
+  --embed-height-by-width: calc(var(--embed-width-by-width) / (16 / 9));
+  --embed-width-by-height: calc(var(--embed-height-by-height) * (16 / 9));
+
+  --embed-height: min(
+    var(--embed-height-by-width),
+    var(--embed-height-by-height)
+  );
+  --embed-width: min(var(--embed-width-by-width), var(--embed-width-by-height));
   color-scheme: light dark;
 }
